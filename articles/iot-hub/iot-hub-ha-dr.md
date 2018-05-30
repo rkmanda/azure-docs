@@ -13,7 +13,7 @@ ms.author: elioda
 # IoT Hub high availability and disaster recovery
 As an Azure service, IoT Hub provides high availability (HA) using redundancies at the Azure region level, without any additional work required by the solution. The Microsoft Azure platform also includes features to help you build solutions with disaster recovery (DR) capabilities or cross-region availability. If you want to provide global, cross-region high availability for devices or users, take advantage of these Azure DR features. The article [Azure Business Continuity Technical Guidance](../resiliency/resiliency-technical-guidance.md) describes the built-in features in Azure for business continuity and DR. The [Disaster recovery and high availability for Azure applications][Disaster recovery and high availability for Azure applications] paper provides architecture guidance on strategies for Azure applications to achieve HA and DR.
 
-## Azure IoT Hub DR
+## Disaster Recovery
 In addition to intra-region HA, IoT Hub implements failover mechanisms for disaster recovery that require no intervention from the user. IoT Hub DR is self-initiated and has a recovery time objective (RTO) of 2-26 hours, and the following recovery point objectives (RPOs):
 
 | Functionality | RPO |
@@ -27,7 +27,13 @@ In addition to intra-region HA, IoT Hub implements failover mechanisms for disas
 | Device twin data |0-5 mins data loss |
 | Parent and device jobs |0-5 mins data loss |
 
-## Regional failover with IoT Hub
+## Microsoft initiated failover
+
+## Manual failover (preview)
+
+## Geo-paired regions used by the IoT Hub service 
+
+## Achieving inter region automatic per-device failover with IoT Hub
 A complete treatment of deployment topologies in IoT solutions is outside the scope of this article. The article discusses the *regional failover* deployment model for the purpose of high availability and disaster recovery.
 
 In a regional failover model, the solution back end runs primarily in one datacenter location. A secondary IoT hub and back end are deployed in another datacenter location. If the IoT hub in the primary datacenter suffers an outage or the network connectivity from the device to the primary datacenter is interrupted, devices use a secondary service endpoint. You can improve the solution availability by implementing a cross-region failover model instead of staying within a single region. 
